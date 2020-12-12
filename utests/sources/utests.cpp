@@ -4,6 +4,9 @@
  * Copyright (C) 2020, by Matvey Cherevko (blackmatov@gmail.com)
  ******************************************************************************/
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include <doctest/doctest.h>
+
 #include <trial2d/trial2d.hpp>
 
 #include <trial2d/inspector/inspector.hpp>
@@ -11,6 +14,6 @@
 #include <trial2d/physics/physics.hpp>
 #include <trial2d/widgets/widgets.hpp>
 
-int main() {
-    return 0;
+TEST_CASE("trial2d") {
+    REQUIRE(true);
 }

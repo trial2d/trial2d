@@ -9,4 +9,7 @@ target_link_libraries(${PROJECT_NAME}
     trial2d-addons
     trial2d-engine)
 
+target_include_directories(${PROJECT_NAME}
+    PRIVATE modules)
+
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
