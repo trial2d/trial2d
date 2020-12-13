@@ -4,4 +4,16 @@
  * Copyright (C) 2020, by Matvey Cherevko (blackmatov@gmail.com)
  ******************************************************************************/
 
-#include <sample/common/common.hpp>
+#include <trial2d/application/application.hpp>
+
+namespace
+{
+}
+
+int main() {
+    return 0;
+}
+
+namespace trial2d::application
+{
+}
