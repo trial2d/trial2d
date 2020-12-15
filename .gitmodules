@@ -16,6 +16,3 @@
 [submodule "vendor/flat.hpp/flat.hpp"]
 	path = vendor/flat.hpp/flat.hpp
 	url = https://github.com/blackmatov/flat.hpp
-[submodule "vendor/glew/glew"]
-	path = vendor/glew/glew
-	url = https://github.com/Perlmint/glew-cmake
