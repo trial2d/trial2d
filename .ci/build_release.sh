@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 BUILD_DIR=`dirname "$BASH_SOURCE"`/../build
-mkdir -p $BUILD_DIR/Release
-pushd $BUILD_DIR/Release
+mkdir -p $BUILD_DIR/release
+pushd $BUILD_DIR/release
 cmake -DCMAKE_BUILD_TYPE=Release ../..
 cmake --build .
 ctest --verbose
