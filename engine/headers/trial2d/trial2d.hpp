@@ -8,6 +8,7 @@
 
 #include <defer.hpp/defer.hpp>
 #include <enum.hpp/enum.hpp>
+#include <flat.hpp/flat.hpp>
 #include <idgen.hpp/idgen.hpp>
 #include <vmath.hpp/vmath.hpp>
 

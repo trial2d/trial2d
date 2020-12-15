@@ -11,6 +11,7 @@ target_compile_features(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     PUBLIC trial2d-vendor-defer.hpp
     PUBLIC trial2d-vendor-enum.hpp
+    PUBLIC trial2d-vendor-flat.hpp
     PUBLIC trial2d-vendor-idgen.hpp
     PUBLIC trial2d-vendor-vmath.hpp)
 
