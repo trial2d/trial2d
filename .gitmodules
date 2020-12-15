@@ -10,9 +10,6 @@
 [submodule "engine/modules/idgen.hpp"]
 	path = vendor/idgen.hpp/idgen.hpp
 	url = https://github.com/blackmatov/idgen.hpp
-[submodule "vendor/glfw/glfw"]
-	path = vendor/glfw/glfw
-	url = https://github.com/glfw/glfw
 [submodule "vendor/flat.hpp/flat.hpp"]
 	path = vendor/flat.hpp/flat.hpp
 	url = https://github.com/blackmatov/flat.hpp

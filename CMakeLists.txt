@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.11 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
 if(NOT DEFINED PROJECT_NAME)
     set(T2D_STANDALONE_BUILD ON)
