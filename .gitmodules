@@ -7,3 +7,6 @@
 [submodule "engine/modules/enum.hpp"]
 	path = engine/modules/enum.hpp
 	url = https://github.com/blackmatov/enum.hpp
+[submodule "engine/modules/idgen.hpp"]
+	path = engine/modules/idgen.hpp
+	url = https://github.com/blackmatov/idgen.hpp

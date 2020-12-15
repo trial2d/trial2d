@@ -21,9 +21,11 @@ target_include_directories(${PROJECT_NAME}
 
 add_subdirectory(modules/defer.hpp)
 add_subdirectory(modules/enum.hpp)
+add_subdirectory(modules/idgen.hpp)
 add_subdirectory(modules/vmath.hpp)
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC defer.hpp
     PUBLIC enum.hpp
+    PUBLIC idgen.hpp
     PUBLIC vmath.hpp)
