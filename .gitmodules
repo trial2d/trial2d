@@ -1,12 +1,12 @@
 [submodule "engine/modules/defer.hpp"]
-	path = engine/modules/defer.hpp
+	path = vendor/defer.hpp/defer.hpp
 	url = https://github.com/blackmatov/defer.hpp
 [submodule "engine/modules/vmath.hpp"]
-	path = engine/modules/vmath.hpp
+	path = vendor/vmath.hpp/vmath.hpp
 	url = https://github.com/blackmatov/vmath.hpp
 [submodule "engine/modules/enum.hpp"]
-	path = engine/modules/enum.hpp
+	path = vendor/enum.hpp/enum.hpp
 	url = https://github.com/blackmatov/enum.hpp
 [submodule "engine/modules/idgen.hpp"]
-	path = engine/modules/idgen.hpp
+	path = vendor/idgen.hpp/idgen.hpp
 	url = https://github.com/blackmatov/idgen.hpp

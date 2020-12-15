@@ -6,6 +6,11 @@
 
 #pragma once
 
+#include <defer.hpp/defer.hpp>
+#include <enum.hpp/enum.hpp>
+#include <idgen.hpp/idgen.hpp>
+#include <vmath.hpp/vmath.hpp>
+
 namespace trial2d
 {
 }

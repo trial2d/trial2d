@@ -6,10 +6,9 @@ set(SOURCES
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME}
-    trial2d-addons
-    trial2d-engine)
-
-target_include_directories(${PROJECT_NAME}
-    PRIVATE modules)
+    PRIVATE trial2d-addons
+    PRIVATE trial2d-editor
+    PRIVATE trial2d-engine
+    PRIVATE trial2d-vendor-doctest)
 
 add_test(${PROJECT_NAME} ${PROJECT_NAME})

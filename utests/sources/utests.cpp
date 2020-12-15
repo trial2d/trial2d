@@ -8,6 +8,7 @@
 #include <doctest/doctest.h>
 
 #include <trial2d/trial2d.hpp>
+#include <trial2d/editor/editor.hpp>
 
 #include <trial2d/application/application.hpp>
 #include <trial2d/inspector/inspector.hpp>

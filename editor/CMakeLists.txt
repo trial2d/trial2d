@@ -6,8 +6,8 @@ set(SOURCES
 add_library(${PROJECT_NAME} STATIC ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME}
-    trial2d-addons
-    trial2d-engine)
+    PUBLIC trial2d-addons
+    PUBLIC trial2d-engine)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC headers)
