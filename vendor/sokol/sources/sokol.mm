@@ -4,14 +4,4 @@
  * Copyright (C) 2020, by Matvey Cherevko (blackmatov@gmail.com)
  ******************************************************************************/
 
-#define SOKOL_IMPL
-
-#if defined(__EMSCRIPTEN__)
-#  define SOKOL_GLES2
-#else
-#  define SOKOL_GLCORE33
-#endif
-
-#include <sokol/sokol_app.h>
-#include <sokol/sokol_gfx.h>
-#include <sokol/sokol_glue.h>
+#include "sokol.cpp"

@@ -6,7 +6,11 @@
 
 #define SOKOL_IMPL
 
-#if defined(__EMSCRIPTEN__)
+#if defined(__APPLE__)
+#  define SOKOL_METAL
+#elif define(__ANDROID__)
+#  define SOKOL_GLES2
+#elif defined(__EMSCRIPTEN__)
 #  define SOKOL_GLES2
 #else
 #  define SOKOL_GLCORE33
