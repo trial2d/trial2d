@@ -8,7 +8,7 @@
 
 #if defined(__APPLE__)
 #  define SOKOL_METAL
-#elif define(__ANDROID__)
+#elif defined(__ANDROID__)
 #  define SOKOL_GLES2
 #elif defined(__EMSCRIPTEN__)
 #  define SOKOL_GLES2
