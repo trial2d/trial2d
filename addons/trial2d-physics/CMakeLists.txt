@@ -3,10 +3,14 @@ project(trial2d-physics)
 set(SOURCES
     sources/physics.cpp)
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES})
+file(GLOB_RECURSE HEADERS headers/*.*)
+add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC trial2d-engine)
+set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER trial2d-addons)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC headers)
+
+target_link_libraries(${PROJECT_NAME}
+    PUBLIC trial2d-engine)
