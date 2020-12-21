@@ -4,19 +4,10 @@
  * Copyright (C) 2020, by Matvey Cherevko (blackmatov@gmail.com)
  ******************************************************************************/
 
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include <doctest/doctest.h>
+#pragma once
 
 #include <trial2d/trial2d.hpp>
-#include <trial2d/editor/editor.hpp>
 
-#include <trial2d/application/application.hpp>
-#include <trial2d/audio/audio.hpp>
-#include <trial2d/inspector/inspector.hpp>
-#include <trial2d/particles/particles.hpp>
-#include <trial2d/physics/physics.hpp>
-#include <trial2d/widgets/widgets.hpp>
-
-TEST_CASE("trial2d") {
-    REQUIRE(true);
+namespace trial2d::audio
+{
 }
