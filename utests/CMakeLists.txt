@@ -3,7 +3,10 @@ project(trial2d-utests)
 set(SOURCES
     sources/utests.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+file(GLOB_RECURSE HEADERS headers/*.*)
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE trial2d-addons
