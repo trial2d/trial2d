@@ -13,9 +13,3 @@
 [submodule "vendor/flat.hpp/flat.hpp"]
 	path = vendor/flat.hpp/flat.hpp
 	url = https://github.com/blackmatov/flat.hpp
-[submodule "vendor/sokol/headers/sokol"]
-	path = vendor/sokol/headers/sokol
-	url = https://github.com/floooh/sokol
-[submodule "vendor/stb/headers/stb"]
-	path = vendor/stb/headers/stb
-	url = https://github.com/nothings/stb
