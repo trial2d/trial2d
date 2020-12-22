@@ -1,5 +1,6 @@
 project(trial2d-vendor)
 
+add_subdirectory(boost.di)
 add_subdirectory(defer.hpp)
 add_subdirectory(doctest)
 add_subdirectory(enum.hpp)

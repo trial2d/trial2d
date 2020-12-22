@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <boost/di.hpp>
 #include <defer.hpp/defer.hpp>
 #include <enum.hpp/enum.hpp>
 #include <flat.hpp/flat.hpp>
