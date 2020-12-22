@@ -12,6 +12,7 @@
 
 #include <trial2d/application/application.hpp>
 #include <trial2d/audio/audio.hpp>
+#include <trial2d/debug/debug.hpp>
 #include <trial2d/inspector/inspector.hpp>
 #include <trial2d/particles/particles.hpp>
 #include <trial2d/physics/physics.hpp>
