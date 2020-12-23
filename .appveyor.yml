@@ -3,6 +3,8 @@ environment:
     T2D_WITHOUT_AUDIO: true
     T2D_WITHOUT_GRAPHICS: true
 
+shallow_clone: true
+
 image:
   - Visual Studio 2017
   - Visual Studio 2019
