@@ -6,8 +6,6 @@
 
 #include <trial2d/debug/debug.hpp>
 
-#include <iostream>
-
 namespace
 {
 }
@@ -39,7 +37,10 @@ namespace trial2d::debug
     }
 
     debug_service& debug_service::log(level lvl, std::string_view msg) {
-        std::cout << "LOG[" << enum_hpp::to_string_or_empty(lvl) << "]: " << msg << std::endl;
+        std::string_view lvl_str = enum_hpp::to_string_or_empty(lvl);
+        std::printf("[%.*s]: %.*s\n",
+            static_cast<int>(lvl_str.length()), lvl_str.data(),
+            static_cast<int>(msg.length()), msg.data());
         return *this;
     }
 }
