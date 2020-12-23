@@ -36,8 +36,6 @@ function(T2D_SETUP_EXECUTABLE TARGET)
         set_target_properties(${TARGET} PROPERTIES
             SUFFIX ".html")
         target_link_options(${TARGET}
-            PRIVATE -sFILESYSTEM=0 -sMALLOC=emmalloc
-            PRIVATE --shell-file "${ARG_TEMPLATES_DIR}/wasm.html"
-            PRIVATE $<$<NOT:$<CONFIG:Debug>>:-sASSERTIONS=0 --closure=1>)
+            PRIVATE --shell-file "${ARG_TEMPLATES_DIR}/wasm.html")
     endif()
 endfunction()
