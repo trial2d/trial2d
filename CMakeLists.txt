@@ -1,5 +1,4 @@
-#target_link_options: 3.13
-cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
 if(NOT DEFINED PROJECT_NAME)
     set(T2D_STANDALONE_BUILD ON)
