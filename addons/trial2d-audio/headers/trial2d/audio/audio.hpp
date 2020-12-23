@@ -7,7 +7,22 @@
 #pragma once
 
 #include <trial2d/trial2d.hpp>
+#include <trial2d/debug/debug.hpp>
+#include <trial2d/memory/memory.hpp>
 
 namespace trial2d::audio
 {
+    class audio_service final
+        : public service<audio_service> {
+    public:
+        audio_service(
+            debug::debug_service& debug,
+            memory::memory_service& memory);
+        ~audio_service();
+    private:
+        debug::debug_service& debug_;
+        memory::memory_service& memory_;
+    };
+
+    inline audio_service::entry the_audio_service;
 }

@@ -76,4 +76,15 @@ sapp_desc sokol_main(int argc, char* argv[]) {
 
 namespace trial2d::application
 {
+    application_service::application_service(
+        debug::debug_service& debug,
+        memory::memory_service& memory)
+    : debug_(debug)
+    , memory_(memory) {
+        debug_.trace("application_service()");
+    }
+
+    application_service::~application_service() {
+        debug_.trace("~application_service()");
+    }
 }

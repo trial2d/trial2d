@@ -12,4 +12,13 @@ namespace
 
 namespace trial2d::memory
 {
+    memory_service::memory_service(
+        debug::debug_service& debug)
+    : debug_(debug) {
+        debug_.trace("memory_service()");
+    }
+
+    memory_service::~memory_service() {
+        debug_.trace("~memory_service()");
+    }
 }

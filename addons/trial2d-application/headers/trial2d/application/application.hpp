@@ -7,7 +7,22 @@
 #pragma once
 
 #include <trial2d/trial2d.hpp>
+#include <trial2d/debug/debug.hpp>
+#include <trial2d/memory/memory.hpp>
 
 namespace trial2d::application
 {
+    class application_service final
+        : public service<application_service> {
+    public:
+        application_service(
+            debug::debug_service& debug,
+            memory::memory_service& memory);
+        ~application_service();
+    private:
+        debug::debug_service& debug_;
+        memory::memory_service& memory_;
+    };
+
+    inline application_service::entry the_application_service;
 }

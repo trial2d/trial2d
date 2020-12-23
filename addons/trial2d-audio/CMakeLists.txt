@@ -13,4 +13,6 @@ target_include_directories(${PROJECT_NAME}
     PUBLIC headers)
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC trial2d-engine)
+    PUBLIC trial2d-debug
+    PUBLIC trial2d-engine
+    PUBLIC trial2d-memory)

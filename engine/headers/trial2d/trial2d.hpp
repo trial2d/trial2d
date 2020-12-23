@@ -15,4 +15,17 @@
 
 namespace trial2d
 {
+    template < typename Service >
+    class service {
+    public:
+        class entry final {
+        public:
+            entry() {
+                auto injector = boost::di::make_injector();
+                service_ = injector.create<std::shared_ptr<Service>>();
+            }
+        private:
+            std::shared_ptr<Service> service_;
+        };
+    };
 }

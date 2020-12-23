@@ -12,4 +12,15 @@ namespace
 
 namespace trial2d::audio
 {
+    audio_service::audio_service(
+        debug::debug_service& debug,
+        memory::memory_service& memory)
+    : debug_(debug)
+    , memory_(memory) {
+        debug_.trace("audio_service()");
+    }
+
+    audio_service::~audio_service() {
+        debug_.trace("~audio_service()");
+    }
 }
