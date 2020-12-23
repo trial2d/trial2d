@@ -15,7 +15,10 @@ function(T2D_SETUP_EXECUTABLE TARGET)
         message(FATAL_ERROR "Missing argument: BUNDLE_IDENTIFIER, TARGET: ${TARGET}")
     endif()
 
-    if(APPLE)
+    if(WIN32)
+        set_target_properties(${TARGET} PROPERTIES
+            WIN32_EXECUTABLE ON)
+    elseif(APPLE)
         if(IOS)
             set_target_properties(${TARGET} PROPERTIES
                 MACOSX_BUNDLE ON
