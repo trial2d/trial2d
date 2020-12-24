@@ -16,7 +16,7 @@
 namespace trial2d
 {
     template < typename Service >
-    class service {
+    class service_base {
     public:
         class entry final {
         public:

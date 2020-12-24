@@ -12,31 +12,31 @@ namespace
 
 namespace trial2d::debug
 {
-    debug_service::debug_service() {
-        trace("debug_service()");
+    service::service() {
+        trace("debug::service()");
     }
 
-    debug_service::~debug_service() {
-        trace("~debug_service()");
+    service::~service() {
+        trace("~debug::service()");
     }
 
-    debug_service& debug_service::trace(std::string_view msg) {
+    service& service::trace(std::string_view msg) {
         return log(level::trace, msg);
     }
 
-    debug_service& debug_service::warning(std::string_view msg) {
+    service& service::warning(std::string_view msg) {
         return log(level::warning, msg);
     }
 
-    debug_service& debug_service::error(std::string_view msg) {
+    service& service::error(std::string_view msg) {
         return log(level::error, msg);
     }
 
-    debug_service& debug_service::fatal(std::string_view msg) {
+    service& service::fatal(std::string_view msg) {
         return log(level::fatal, msg);
     }
 
-    debug_service& debug_service::log(level lvl, std::string_view msg) {
+    service& service::log(level lvl, std::string_view msg) {
         std::string_view lvl_str = enum_hpp::to_string_or_empty(lvl);
         std::printf("[%.*s]: %.*s\n",
             static_cast<int>(lvl_str.length()), lvl_str.data(),

@@ -12,17 +12,17 @@
 
 namespace trial2d::application
 {
-    class application_service final
-        : public service<application_service> {
+    class service final
+        : public service_base<service> {
     public:
-        application_service(
-            debug::debug_service& debug,
-            memory::memory_service& memory);
-        ~application_service();
+        service(
+            debug::service& debug,
+            memory::service& memory);
+        ~service();
     private:
-        debug::debug_service& debug_;
-        memory::memory_service& memory_;
+        debug::service& debug_;
+        memory::service& memory_;
     };
 
-    inline application_service::entry the_application_service;
+    inline service::entry the_service;
 }

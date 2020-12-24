@@ -17,19 +17,19 @@ namespace trial2d::debug
         (fatal))
     ENUM_HPP_REGISTER_TRAITS(level)
 
-    class debug_service final
-        : public service<debug_service> {
+    class service final
+        : public service_base<service> {
     public:
-        debug_service();
-        ~debug_service();
+        service();
+        ~service();
 
-        debug_service& trace(std::string_view msg);
-        debug_service& warning(std::string_view msg);
-        debug_service& error(std::string_view msg);
-        debug_service& fatal(std::string_view msg);
+        service& trace(std::string_view msg);
+        service& warning(std::string_view msg);
+        service& error(std::string_view msg);
+        service& fatal(std::string_view msg);
 
-        debug_service& log(level lvl, std::string_view msg);
+        service& log(level lvl, std::string_view msg);
     };
 
-    inline debug_service::entry the_debug_service;
+    inline service::entry the_service;
 }

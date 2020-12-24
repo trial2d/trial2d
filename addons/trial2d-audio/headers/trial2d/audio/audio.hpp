@@ -12,17 +12,17 @@
 
 namespace trial2d::audio
 {
-    class audio_service final
-        : public service<audio_service> {
+    class service final
+        : public service_base<service> {
     public:
-        audio_service(
-            debug::debug_service& debug,
-            memory::memory_service& memory);
-        ~audio_service();
+        service(
+            debug::service& debug,
+            memory::service& memory);
+        ~service();
     private:
-        debug::debug_service& debug_;
-        memory::memory_service& memory_;
+        debug::service& debug_;
+        memory::service& memory_;
     };
 
-    inline audio_service::entry the_audio_service;
+    inline service::entry the_service;
 }

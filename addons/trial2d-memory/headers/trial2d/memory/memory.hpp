@@ -11,14 +11,14 @@
 
 namespace trial2d::memory
 {
-    class memory_service final
-        : public service<memory_service> {
+    class service final
+        : public service_base<service> {
     public:
-        memory_service(debug::debug_service& debug);
-        ~memory_service();
+        service(debug::service& debug);
+        ~service();
     private:
-        debug::debug_service& debug_;
+        debug::service& debug_;
     };
 
-    inline memory_service::entry the_memory_service;
+    inline service::entry the_service;
 }
