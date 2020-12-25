@@ -1,9 +1,8 @@
 project(trial2d-utests)
 
-set(SOURCES
-    sources/utests.cpp)
-
+file(GLOB_RECURSE SOURCES sources/*.*)
 file(GLOB_RECURSE HEADERS headers/*.*)
+
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})

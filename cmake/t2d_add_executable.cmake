@@ -1,4 +1,4 @@
-function(T2D_SETUP_EXECUTABLE TARGET)
+function(T2D_ADD_EXECUTABLE TARGET)
     cmake_parse_arguments(
         PARSE_ARGV
         1
@@ -13,6 +13,12 @@ function(T2D_SETUP_EXECUTABLE TARGET)
 
     if(NOT ARG_BUNDLE_IDENTIFIER)
         message(FATAL_ERROR "Missing argument: BUNDLE_IDENTIFIER, TARGET: ${TARGET}")
+    endif()
+
+    if(CMAKE_SYSTEM_NAME MATCHES "Android")
+        add_library(${TARGET} SHARED ${ARG_UNPARSED_ARGUMENTS})
+    else()
+        add_executable(${TARGET} ${ARG_UNPARSED_ARGUMENTS})
     endif()
 
     if(CMAKE_SYSTEM_NAME MATCHES "Darwin")

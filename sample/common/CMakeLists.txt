@@ -1,9 +1,8 @@
 project(trial2d-sample-common)
 
-set(SOURCES
-    sources/common.cpp)
-
+file(GLOB_RECURSE SOURCES sources/*.*)
 file(GLOB_RECURSE HEADERS headers/*.*)
+
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER trial2d-sample)
