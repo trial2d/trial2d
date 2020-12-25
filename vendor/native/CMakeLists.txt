@@ -2,6 +2,15 @@ project(trial2d-vendor-native)
 
 add_library(${PROJECT_NAME} INTERFACE)
 
+if(CMAKE_SYSTEM_NAME MATCHES "Android")
+    target_link_libraries(${PROJECT_NAME} INTERFACE
+        android
+        EGL
+        GLESv3
+        log
+        m)
+endif()
+
 if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
     target_link_libraries(${PROJECT_NAME} INTERFACE
         "-framework AudioToolbox"
