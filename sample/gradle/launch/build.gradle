@@ -16,7 +16,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -26,9 +27,26 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    defaultConfig {
+        externalNativeBuild {
+            cmake {
+                targets 'trial2d-sample-launch'
+            }
+        }
+    }
+
     externalNativeBuild {
         cmake {
             path file('../../../CMakeLists.txt')
+        }
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include "x86", "x86_64", "armeabi-v7a", "arm64-v8a"
+            universalApk false
         }
     }
 }
