@@ -7,17 +7,18 @@
 #pragma once
 
 #include <trial2d/trial2d.hpp>
-
-#include <trial2d/application/application.hpp>
-#include <trial2d/audio/audio.hpp>
 #include <trial2d/debug/debug.hpp>
-#include <trial2d/inspector/inspector.hpp>
-#include <trial2d/memory/memory.hpp>
-#include <trial2d/particles/particles.hpp>
-#include <trial2d/physics/physics.hpp>
-#include <trial2d/storage/storage.hpp>
-#include <trial2d/widgets/widgets.hpp>
 
-namespace sample::common
+namespace trial2d::storage
 {
+    class service final
+        : public service_base<service> {
+    public:
+        service(debug::service& debug);
+        ~service();
+    private:
+        debug::service& debug_;
+    };
+
+    inline service::entry the_service;
 }
