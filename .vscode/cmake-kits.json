@@ -1,0 +1,12 @@
+[{
+    "name": "Android",
+    "toolchainFile": "${workspaceFolder}/.ci/android_sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
+    "cmakeSettings": {
+        "ANDROID_ABI": "armeabi-v7a",
+        "ANDROID_PLATFORM": "android-19"
+    }
+},{
+    "name": "Emscripten",
+    "toolchainFile": "${workspaceFolder}/.ci/emscripten_sdk/emsdk-2.0.11/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+    "environmentSetupScript": "${workspaceFolder}/.ci/emscripten_sdk/emsdk-2.0.11/emsdk_env.sh"
+}]
