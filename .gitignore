@@ -5,4 +5,5 @@ build/*
 CMakeSettings.json
 CMakeLists.txt.user
 .ci/android_sdk/*
+.ci/emscripten_sdk/*
 .ci/downloads/*
