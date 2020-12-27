@@ -1,7 +1,8 @@
 .vs/*
 .vscode/*
 build/*
-_build/*
 .DS_Store
 CMakeSettings.json
 CMakeLists.txt.user
+.ci/android_sdk/*
+.ci/downloads/*

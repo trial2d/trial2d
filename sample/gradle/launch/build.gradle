@@ -3,13 +3,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
+    ndkVersion "21.1.6352462"
 
     defaultConfig {
         applicationId "me.matov.trial2d.sample.launch"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
