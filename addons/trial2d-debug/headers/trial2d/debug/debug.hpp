@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <trial2d/trial2d.hpp>
+#include <trial2d/core/core.hpp>
 
 namespace trial2d::debug
 {
@@ -17,19 +17,17 @@ namespace trial2d::debug
         (fatal))
     ENUM_HPP_REGISTER_TRAITS(level)
 
-    class service final
-        : public service_base<service> {
+    class service {
     public:
-        service();
-        ~service();
+        virtual ~service() = default;
 
-        service& trace(std::string_view msg);
-        service& warning(std::string_view msg);
-        service& error(std::string_view msg);
-        service& fatal(std::string_view msg);
+        virtual void log(level lvl, std::string_view msg) = 0;
 
-        service& log(level lvl, std::string_view msg);
+        void trace(std::string_view msg);
+        void warning(std::string_view msg);
+        void error(std::string_view msg);
+        void fatal(std::string_view msg);
     };
 
-    inline service::entry the_service;
+    void inject(di_ext::runtime_injector& injector);
 }
