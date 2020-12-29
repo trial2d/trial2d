@@ -6,19 +6,32 @@
 
 #include <trial2d/memory/memory.hpp>
 
+#include <trial2d/debug/debug.hpp>
+
 namespace
 {
+    using namespace trial2d;
+
+    class service_impl final : public memory::service {
+    public:
+        service_impl(debug::service& debug)
+        : debug_(debug) {
+            debug_.trace("memory::service()");
+        }
+
+        ~service_impl() {
+            debug_.trace("~memory::service()");
+        }
+    private:
+        debug::service& debug_;
+    };
 }
 
 namespace trial2d::memory
 {
-    service::service(
-        debug::service& debug)
-    : debug_(debug) {
-        debug_.trace("memory::service()");
-    }
-
-    service::~service() {
-        debug_.trace("~memory::service()");
+    void inject(di_ext::runtime_injector& injector) {
+        injector.install(
+            di::bind<memory::service>.to<service_impl>()
+        );
     }
 }

@@ -6,19 +6,14 @@
 
 #pragma once
 
-#include <trial2d/trial2d.hpp>
-#include <trial2d/debug/debug.hpp>
+#include <trial2d/core/core.hpp>
 
 namespace trial2d::memory
 {
-    class service final
-        : public service_base<service> {
+    class service {
     public:
-        service(debug::service& debug);
-        ~service();
-    private:
-        debug::service& debug_;
+        virtual ~service() = default;
     };
 
-    inline service::entry the_service;
+    void inject(di_ext::runtime_injector& injector);
 }
