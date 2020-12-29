@@ -7,11 +7,19 @@
 #pragma once
 
 #include <boost/di.hpp>
+#include <boost/di/extension/providers/runtime_provider.hpp>
+
 #include <defer.hpp/defer.hpp>
 #include <enum.hpp/enum.hpp>
 #include <flat.hpp/flat.hpp>
 #include <idgen.hpp/idgen.hpp>
 #include <vmath.hpp/vmath.hpp>
+
+namespace trial2d
+{
+    namespace di = boost::di;
+    namespace di_ext = boost::di::extension;
+}
 
 namespace trial2d
 {
