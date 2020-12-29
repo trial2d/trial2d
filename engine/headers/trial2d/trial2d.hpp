@@ -6,26 +6,12 @@
 
 #pragma once
 
-#include <boost/di.hpp>
-#include <defer.hpp/defer.hpp>
-#include <enum.hpp/enum.hpp>
-#include <flat.hpp/flat.hpp>
-#include <idgen.hpp/idgen.hpp>
-#include <vmath.hpp/vmath.hpp>
+#include <trial2d/core/core.hpp>
 
 namespace trial2d
 {
-    template < typename Service >
-    class service_base {
-    public:
-        class entry final {
-        public:
-            entry() {
-                auto injector = boost::di::make_injector();
-                service_ = injector.create<std::shared_ptr<Service>>();
-            }
-        private:
-            std::shared_ptr<Service> service_;
-        };
-    };
+    inline di_ext::runtime_injector& main_injector() {
+        static di_ext::runtime_injector the_injector;
+        return the_injector;
+    }
 }

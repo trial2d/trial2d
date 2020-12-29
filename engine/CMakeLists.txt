@@ -12,12 +12,7 @@ target_compile_features(${PROJECT_NAME}
     PUBLIC cxx_std_17)
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC trial2d-vendor-boost.di
-    PUBLIC trial2d-vendor-defer.hpp
-    PUBLIC trial2d-vendor-enum.hpp
-    PUBLIC trial2d-vendor-flat.hpp
-    PUBLIC trial2d-vendor-idgen.hpp
-    PUBLIC trial2d-vendor-vmath.hpp)
+    PUBLIC trial2d-core)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC headers)

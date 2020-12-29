@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <trial2d/trial2d.hpp>
+#include <trial2d/core/core.hpp>
 
 namespace trial2d::widgets
 {
