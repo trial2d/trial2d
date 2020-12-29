@@ -10,7 +10,7 @@ target_compile_features(${PROJECT_NAME}
     PUBLIC cxx_std_17)
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC trial2d-core)
+    PUBLIC trial2d-addons)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC headers)

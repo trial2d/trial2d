@@ -7,7 +7,6 @@ add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC trial2d-addons
     PUBLIC trial2d-engine)
 
 target_include_directories(${PROJECT_NAME}
