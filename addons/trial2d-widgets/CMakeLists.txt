@@ -1,8 +1,6 @@
 project(trial2d-widgets)
 
-set(SOURCES
-    sources/widgets.cpp)
-
+file(GLOB_RECURSE SOURCES sources/*.*)
 file(GLOB_RECURSE HEADERS headers/*.*)
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 

@@ -2,7 +2,6 @@ project(trial2d-application)
 
 file(GLOB_RECURSE SOURCES sources/*.*)
 file(GLOB_RECURSE HEADERS headers/*.*)
-
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER trial2d-addons)
