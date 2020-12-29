@@ -20,6 +20,11 @@
 #include <trial2d/storage/storage.hpp>
 #include <trial2d/widgets/widgets.hpp>
 
+namespace sample
+{
+    using namespace trial2d;
+}
+
 namespace sample::common
 {
 }
