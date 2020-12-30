@@ -1,16 +1,70 @@
 project(trial2d-engine)
 
-file(GLOB_RECURSE SOURCES sources/*.*)
-file(GLOB_RECURSE HEADERS headers/*.*)
-add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
+option(T2D_ENABLE_APPLICATION_MODULE "Enable trial2d application module" ON)
+option(T2D_ENABLE_AUDIO_MODULE "Enable trial2d audio module" ON)
+option(T2D_ENABLE_CORE_MODULE "Enable trial2d core module" ON)
+option(T2D_ENABLE_DEBUG_MODULE "Enable trial2d debug module" ON)
+option(T2D_ENABLE_INPUT_MODULE "Enable trial2d input module" ON)
+option(T2D_ENABLE_INSPECTOR_MODULE "Enable trial2d inspector module" ON)
+option(T2D_ENABLE_MEMORY_MODULE "Enable trial2d memory module" ON)
+option(T2D_ENABLE_PARTICLES_MODULE "Enable trial2d particles module" ON)
+option(T2D_ENABLE_PHYSICS_MODULE "Enable trial2d physics module" ON)
+option(T2D_ENABLE_STORAGE_MODULE "Enable trial2d storage module" ON)
+option(T2D_ENABLE_WIDGETS_MODULE "Enable trial2d widgets module" ON)
 
-source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})
+add_library(${PROJECT_NAME} INTERFACE)
 
-target_compile_features(${PROJECT_NAME}
-    PUBLIC cxx_std_17)
+if(T2D_ENABLE_APPLICATION_MODULE)
+    add_subdirectory(application)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-application)
+endif()
 
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC trial2d-addons)
+if(T2D_ENABLE_AUDIO_MODULE)
+    add_subdirectory(audio)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-audio)
+endif()
 
-target_include_directories(${PROJECT_NAME}
-    PUBLIC headers)
+if(T2D_ENABLE_CORE_MODULE)
+    add_subdirectory(core)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-core)
+endif()
+
+if(T2D_ENABLE_DEBUG_MODULE)
+    add_subdirectory(debug)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-debug)
+endif()
+
+if(T2D_ENABLE_INPUT_MODULE)
+    add_subdirectory(input)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-input)
+endif()
+
+if(T2D_ENABLE_INSPECTOR_MODULE)
+    add_subdirectory(inspector)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-inspector)
+endif()
+
+if(T2D_ENABLE_MEMORY_MODULE)
+    add_subdirectory(memory)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-memory)
+endif()
+
+if(T2D_ENABLE_PARTICLES_MODULE)
+    add_subdirectory(particles)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-particles)
+endif()
+
+if(T2D_ENABLE_PHYSICS_MODULE)
+    add_subdirectory(physics)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-physics)
+endif()
+
+if(T2D_ENABLE_STORAGE_MODULE)
+    add_subdirectory(storage)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-storage)
+endif()
+
+if(T2D_ENABLE_WIDGETS_MODULE)
+    add_subdirectory(widgets)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-widgets)
+endif()

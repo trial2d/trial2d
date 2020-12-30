@@ -6,7 +6,17 @@
 
 #pragma once
 
-#include <trial2d/trial2d.hpp>
+#include <trial2d/application/application.hpp>
+#include <trial2d/audio/audio.hpp>
+#include <trial2d/core/core.hpp>
+#include <trial2d/debug/debug.hpp>
+#include <trial2d/input/input.hpp>
+#include <trial2d/inspector/inspector.hpp>
+#include <trial2d/memory/memory.hpp>
+#include <trial2d/particles/particles.hpp>
+#include <trial2d/physics/physics.hpp>
+#include <trial2d/storage/storage.hpp>
+#include <trial2d/widgets/widgets.hpp>
 
 namespace trial2d::editor
 {

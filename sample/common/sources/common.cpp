@@ -6,6 +6,10 @@
 
 #include <sample/common/common.hpp>
 
+namespace
+{
+}
+
 namespace sample::common
 {
 }

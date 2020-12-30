@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include <trial2d/trial2d.hpp>
-
 #include <trial2d/application/application.hpp>
 #include <trial2d/audio/audio.hpp>
 #include <trial2d/core/core.hpp>

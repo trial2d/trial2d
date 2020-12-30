@@ -14,7 +14,6 @@ option(T2D_BUILD_EDITOR "Build trial2d editor" ON)
 option(T2D_BUILD_SAMPLE "Build trial2d sample" ${T2D_STANDALONE_BUILD})
 option(T2D_BUILD_UTESTS "Build trial2d utests" ${T2D_STANDALONE_BUILD})
 
-add_subdirectory(addons)
 add_subdirectory(engine)
 add_subdirectory(vendor)
 
