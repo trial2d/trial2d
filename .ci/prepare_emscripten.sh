@@ -9,7 +9,7 @@ EMSDK_VERSION="2.0.11"
 
 DIR=`dirname "${BASH_SOURCE}"`
 
-DOWNLOADS_DIR="${DIR}/downloads"
+DOWNLOADS_DIR="${DIR}/.downloads"
 EMSCRIPTEN_SDK_DIR="${DIR}/emscripten_sdk"
 
 mkdir -p "${DOWNLOADS_DIR}"

@@ -12,7 +12,7 @@ NDK_VERSION=21.1.6352462
 
 DIR=`dirname "${BASH_SOURCE}"`
 
-DOWNLOADS_DIR="${DIR}/downloads"
+DOWNLOADS_DIR="${DIR}/.downloads"
 ANDROID_SDK_DIR="${DIR}/android_sdk"
 
 mkdir -p "${DOWNLOADS_DIR}"
