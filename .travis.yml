@@ -19,15 +19,18 @@ jobs:
     - os: linux
       dist: xenial
       stage: android
-      name: debug, linux
+      name: linux
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
-      script: .ci/builds/build_android_debug.sh
+      script: .ci/builds/build_android_release.sh
 
-    - os: linux
-      dist: xenial
+    #
+    # android (darwin)
+    #
+
+    - os: osx
+      osx_image: xcode12
       stage: android
-      name: release, linux
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
+      name: darwin
       script: .ci/builds/build_android_release.sh
 
     #
