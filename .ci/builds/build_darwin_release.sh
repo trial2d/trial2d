@@ -4,10 +4,10 @@ DIR=`dirname "${BASH_SOURCE}"`
 
 PWD_DIR=`pwd`
 ROOT_DIR="${DIR}/../.."
-BUILD_DIR="${ROOT_DIR}/build/unix_debug"
+BUILD_DIR="${ROOT_DIR}/build/darwin_release"
 
 mkdir -p "$BUILD_DIR" && pushd "$BUILD_DIR"
-cmake "${PWD_DIR}/${ROOT_DIR}" -DCMAKE_BUILD_TYPE=Debug
+cmake "${PWD_DIR}/${ROOT_DIR}" -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 ctest --verbose
 popd
