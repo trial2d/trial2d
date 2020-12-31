@@ -12,4 +12,4 @@ if [ ! -d "${ANDROID_NDK_DIR}" ]; then
     "${PLATFORM_DIR}/prepare_android.sh"
 fi
 
-gradle assembleDebug --project-dir "${GRADLE_DIR}"
+"${GRADLE_DIR}/gradlew" assembleDebug --project-dir "${GRADLE_DIR}"
