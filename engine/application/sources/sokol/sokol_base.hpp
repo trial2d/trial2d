@@ -154,7 +154,7 @@ namespace trial2d::sokol
             return std::move(*this);
         }
 
-        self_type&& val(float val) && {
+        self_type&& val(uint8_t val) && {
             value.val = val;
             return std::move(*this);
         }
