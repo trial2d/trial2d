@@ -20,12 +20,14 @@ jobs:
       dist: xenial
       stage: android
       name: debug, linux
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
       script: .ci/builds/build_android_debug.sh
 
     - os: linux
       dist: xenial
       stage: android
       name: release, linux
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
       script: .ci/builds/build_android_release.sh
 
     #
