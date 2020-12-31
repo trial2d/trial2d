@@ -13,19 +13,19 @@ jobs:
   include:
 
     #
-    # android
+    # android (linux)
     #
 
     - os: linux
       dist: xenial
       stage: android
-      name: debug
+      name: debug, linux
       script: .ci/builds/build_android_debug.sh
 
     - os: linux
       dist: xenial
       stage: android
-      name: release
+      name: release, linux
       script: .ci/builds/build_android_release.sh
 
     #
@@ -141,9 +141,10 @@ jobs:
       script: .ci/builds/build_darwin_release.sh
 
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == 'linux' ]; then
-    mkdir $HOME/cmake;
-    export PATH="$HOME/cmake/bin:$PATH";
-    travis_retry wget -q https://cmake.org/files/v3.13/cmake-3.13.0-Linux-x86_64.sh;
-    sh cmake-3.13.0-Linux-x86_64.sh --prefix=$HOME/cmake --exclude-subdir --skip-license;
+  - if [ "${TRAVIS_OS_NAME}" == 'linux' ]; then
+    mkdir ${HOME}/cmake;
+    export PATH="${HOME}/cmake/bin:${PATH}";
+    travis_retry wget -q "https://cmake.org/files/v3.13/cmake-3.13.0-Linux-x86_64.sh";
+    sh cmake-3.13.0-Linux-x86_64.sh --prefix=${HOME}/cmake --exclude-subdir --skip-license;
+    echo "cmake.dir=${HOME}/cmake" >> "sample/gradle/local.properties";
     fi
