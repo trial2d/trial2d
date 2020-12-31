@@ -2,7 +2,9 @@
 set -e
 DIR=`dirname "${BASH_SOURCE}"`
 
-SAMPLE_DIR="${DIR}/../../sample"
+ROOT_DIR="${DIR}/../.."
+GRADLE_DIR="${ROOT_DIR}/sample/gradle"
+
 PLATFORM_DIR="${DIR}/../platform"
 ANDROID_NDK_DIR="${PLATFORM_DIR}/android_sdk/ndk/21.1.6352462"
 
@@ -10,6 +12,4 @@ if [ ! -d "${ANDROID_NDK_DIR}" ]; then
     "${PLATFORM_DIR}/prepare_android.sh"
 fi
 
-pushd "${SAMPLE_DIR}/gradle"
-gradle assembleDebug
-popd
+gradle assembleDebug --project-dir "${GRADLE_DIR}"
