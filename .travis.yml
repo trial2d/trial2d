@@ -13,6 +13,22 @@ jobs:
   include:
 
     #
+    # android
+    #
+
+    - os: linux
+      dist: xenial
+      stage: android
+      name: debug
+      script: .ci/builds/build_android_debug.sh
+
+    - os: linux
+      dist: xenial
+      stage: android
+      name: release
+      script: .ci/builds/build_android_release.sh
+
+    #
     # linux (g++-7)
     #
 
