@@ -15,5 +15,5 @@ fi
 source "${EMSDK_DIR}/emsdk_env.sh"
 
 mkdir -p "${BUILD_DIR}"
-emcmake cmake "${ROOT_DIR}" -B "${BUILD_DIR}" -DCMAKE_BUILD_TYPE=Debug
+emcmake cmake "${ROOT_DIR}" -B "${BUILD_DIR}" -G Ninja -DCMAKE_BUILD_TYPE=Debug
 cmake --build "${BUILD_DIR}"

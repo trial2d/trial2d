@@ -41,7 +41,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, g++-7
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
       env: CC=gcc-7 CXX=g++-7
       script: .ci/builds/build_linux_debug.sh
 
@@ -49,7 +49,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, g++-7
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
       env: CC=gcc-7 CXX=g++-7
       script: .ci/builds/build_linux_release.sh
 
@@ -61,7 +61,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, g++-8
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
       env: CC=gcc-8 CXX=g++-8
       script: .ci/builds/build_linux_debug.sh
 
@@ -69,7 +69,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, g++-8
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
       env: CC=gcc-8 CXX=g++-8
       script: .ci/builds/build_linux_release.sh
 
@@ -81,7 +81,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, clang++-5.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
       env: CC=clang-5.0 CXX=clang++-5.0
       script: .ci/builds/build_linux_debug.sh
 
@@ -89,7 +89,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, clang++-5.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
       env: CC=clang-5.0 CXX=clang++-5.0
       script: .ci/builds/build_linux_release.sh
 
@@ -101,7 +101,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, clang++-6.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
       env: CC=clang-6.0 CXX=clang++-6.0
       script: .ci/builds/build_linux_debug.sh
 
@@ -109,7 +109,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, clang++-6.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
       env: CC=clang-6.0 CXX=clang++-6.0
       script: .ci/builds/build_linux_release.sh
 
@@ -144,12 +144,3 @@ jobs:
       stage: darwin
       name: release, xcode12
       script: .ci/builds/build_darwin_release.sh
-
-before_install:
-  - if [ "${TRAVIS_OS_NAME}" == 'linux' ]; then
-    mkdir ${HOME}/cmake;
-    export PATH="${HOME}/cmake/bin:${PATH}";
-    travis_retry wget -q "https://cmake.org/files/v3.13/cmake-3.13.0-Linux-x86_64.sh";
-    sh cmake-3.13.0-Linux-x86_64.sh --prefix=${HOME}/cmake --exclude-subdir --skip-license;
-    echo "cmake.dir=${HOME}/cmake" >> "sample/gradle/local.properties";
-    fi
