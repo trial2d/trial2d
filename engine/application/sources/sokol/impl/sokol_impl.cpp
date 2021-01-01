@@ -4,6 +4,18 @@
  * Copyright (C) 2020, by Matvey Cherevko (blackmatov@gmail.com)
  ******************************************************************************/
 
+#define SOKOL_IMPL
+
+#if defined(__APPLE__)
+#  define SOKOL_METAL
+#elif defined(__ANDROID__)
+#  define SOKOL_GLES3
+#elif defined(__EMSCRIPTEN__)
+#  define SOKOL_GLES2
+#else
+#  define SOKOL_GLCORE33
+#endif
+
 #include <sokol/sokol_app.h>
 #include <sokol/sokol_gfx.h>
 #include <sokol/sokol_glue.h>

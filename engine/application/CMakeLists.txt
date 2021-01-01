@@ -1,6 +1,19 @@
 project(trial2d-engine-application)
 
-file(GLOB_RECURSE SOURCES sources/*.*)
+if(APPLE)
+    set(SOURCES
+        sources/sokol/impl/sokol_impl.mm
+        sources/sokol/sokol_base.hpp
+        sources/sokol/sokol_main.cpp
+        sources/application.cpp)
+else()
+    set(SOURCES
+        sources/sokol/impl/sokol_impl.cpp
+        sources/sokol/sokol_base.hpp
+        sources/sokol/sokol_main.cpp
+        sources/application.cpp)
+endif()
+
 file(GLOB_RECURSE HEADERS headers/*.*)
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
