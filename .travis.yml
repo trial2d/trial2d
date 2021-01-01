@@ -31,6 +31,7 @@ jobs:
       osx_image: xcode12
       stage: android
       name: darwin
+      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_android_release.sh
 
     #
@@ -121,12 +122,14 @@ jobs:
       osx_image: xcode11
       stage: darwin
       name: debug, xcode11
+      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_debug.sh
 
     - os: osx
       osx_image: xcode11
       stage: darwin
       name: release, xcode11
+      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_release.sh
 
     #
@@ -137,10 +140,12 @@ jobs:
       osx_image: xcode12
       stage: darwin
       name: debug, xcode12
+      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_debug.sh
 
     - os: osx
       osx_image: xcode12
       stage: darwin
       name: release, xcode12
+      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_release.sh
