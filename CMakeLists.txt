@@ -1,5 +1,5 @@
-#target_link_options: 3.13
-cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+# 3.8 version is required for `cxx_std_17`
+cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 if(NOT DEFINED PROJECT_NAME)
     set(T2D_STANDALONE_BUILD ON)

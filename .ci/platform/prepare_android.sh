@@ -26,7 +26,7 @@ SYSTEM_NAME=`uname | tr '[:upper:]' '[:lower:]'`
 case "${SYSTEM_NAME}" in
     "darwin") CMDLINE_TOOLS_NAME="commandlinetools-mac-${CMDLINE_TOOLS_ID}_latest";;
     "linux") CMDLINE_TOOLS_NAME="commandlinetools-linux-${CMDLINE_TOOLS_ID}_latest";;
-    "windows") CMDLINE_TOOLS_NAME="commandlinetools-win-${CMDLINE_TOOLS_ID}_lates"t;;
+    "windows") CMDLINE_TOOLS_NAME="commandlinetools-win-${CMDLINE_TOOLS_ID}_latest";;
 esac
 
 CMDLINE_TOOLS_URL="https://dl.google.com/android/repository/${CMDLINE_TOOLS_NAME}.zip"

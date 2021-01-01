@@ -40,19 +40,3 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux")
         Xcursor
         Xi)
 endif()
-
-if(CMAKE_SYSTEM_NAME MATCHES "Emscripten")
-    target_link_options(${PROJECT_NAME} INTERFACE
-        -sABORTING_MALLOC=0
-        -sALLOW_MEMORY_GROWTH=1
-        -sDISABLE_EXCEPTION_CATCHING=0
-        -sFILESYSTEM=0
-        -sMALLOC=emmalloc
-        -sMAX_WEBGL_VERSION=1
-        -sMIN_WEBGL_VERSION=1
-        -sWASM=1
-        $<$<NOT:$<CONFIG:Debug>>:
-            -flto
-            -sASSERTIONS=0
-            -sUSE_CLOSURE_COMPILER=1>)
-endif()
