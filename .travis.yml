@@ -47,6 +47,38 @@ jobs:
       script: .ci/builds/build_android_release.sh
 
     #
+    # emscripten (linux)
+    #
+
+    - os: linux
+      dist: xenial
+      stage: emscripten
+      name: debug, linux
+      script: .ci/builds/build_emscripten_debug.sh
+
+    - os: linux
+      dist: xenial
+      stage: emscripten
+      name: release, linux
+      script: .ci/builds/build_emscripten_release.sh
+
+    #
+    # emscripten (darwin)
+    #
+
+    - os: osx
+      osx_image: xcode12
+      stage: emscripten
+      name: debug, darwin
+      script: .ci/builds/build_emscripten_debug.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: emscripten
+      name: release, darwin
+      script: .ci/builds/build_emscripten_release.sh
+
+    #
     # linux (g++-7)
     #
 
