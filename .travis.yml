@@ -127,3 +127,17 @@ jobs:
       stage: darwin
       name: xcode12
       script: .ci/builds/build_darwin.sh
+
+    #
+    # windows
+    #
+
+    - os: windows
+      stage: windows
+      name: x86
+      script: .ci/builds/build_windows_x86.bat
+
+    - os: windows
+      stage: windows
+      name: x64
+      script: .ci/builds/build_windows_x64.bat
