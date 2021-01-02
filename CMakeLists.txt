@@ -5,27 +5,22 @@ if(NOT DEFINED PROJECT_NAME)
     set(T2D_STANDALONE_BUILD ON)
 endif()
 
+project(trial2d)
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-project(trial2d)
+include("t2d_platform")
 
-option(T2D_BUILD_EDITOR "Build trial2d editor" ON)
-option(T2D_BUILD_SAMPLE "Build trial2d sample" ${T2D_STANDALONE_BUILD})
-option(T2D_BUILD_UTESTS "Build trial2d utests" ${T2D_STANDALONE_BUILD})
-
+add_subdirectory(editor)
 add_subdirectory(engine)
 add_subdirectory(vendor)
 
-if(T2D_BUILD_EDITOR)
-    add_subdirectory(editor)
-endif()
-
-if(T2D_BUILD_SAMPLE)
+if(T2D_STANDALONE_BUILD)
     add_subdirectory(sample)
 endif()
 
-if(T2D_BUILD_UTESTS)
+if(T2D_STANDALONE_BUILD AND T2D_DESKTOP_PLATFORM)
     enable_testing()
     add_subdirectory(utests)
 endif()

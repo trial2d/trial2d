@@ -13,6 +13,38 @@ jobs:
   include:
 
     #
+    # ios (xcode11)
+    #
+
+    - os: osx
+      osx_image: xcode11
+      stage: ios
+      name: debug, xcode11
+      script: .ci/builds/build_ios_simulator_debug.sh
+
+    - os: osx
+      osx_image: xcode11
+      stage: ios
+      name: release, xcode11
+      script: .ci/builds/build_ios_simulator_release.sh
+
+    #
+    # ios (xcode12)
+    #
+
+    - os: osx
+      osx_image: xcode12
+      stage: ios
+      name: debug, xcode12
+      script: .ci/builds/build_ios_simulator_debug.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: ios
+      name: release, xcode12
+      script: .ci/builds/build_ios_simulator_release.sh
+
+    #
     # android (linux)
     #
 
