@@ -85,14 +85,26 @@ jobs:
     - os: linux
       dist: bionic
       stage: emscripten
-      name: debug, linux
-      script: .ci/builds/build_emscripten_debug.sh
+      name: debug, asmjs, linux
+      script: .ci/builds/build_asmjs_debug.sh
 
     - os: linux
       dist: bionic
       stage: emscripten
-      name: release, linux
-      script: .ci/builds/build_emscripten_release.sh
+      name: release, asmjs, linux
+      script: .ci/builds/build_asmjs_release.sh
+
+    - os: linux
+      dist: bionic
+      stage: emscripten
+      name: debug, wasm, linux
+      script: .ci/builds/build_wasm_debug.sh
+
+    - os: linux
+      dist: bionic
+      stage: emscripten
+      name: release, wasm, linux
+      script: .ci/builds/build_wasm_release.sh
 
     #
     # emscripten (darwin)
@@ -101,14 +113,26 @@ jobs:
     - os: osx
       osx_image: xcode12
       stage: emscripten
-      name: debug, darwin
-      script: .ci/builds/build_emscripten_debug.sh
+      name: debug, asmjs, darwin
+      script: .ci/builds/build_asmjs_debug.sh
 
     - os: osx
       osx_image: xcode12
       stage: emscripten
-      name: release, darwin
-      script: .ci/builds/build_emscripten_release.sh
+      name: release, asmjs, darwin
+      script: .ci/builds/build_asmjs_release.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: emscripten
+      name: debug, wasm, darwin
+      script: .ci/builds/build_wasm_debug.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: emscripten
+      name: release, wasm, darwin
+      script: .ci/builds/build_wasm_release.sh
 
     #
     # linux (g++-7)

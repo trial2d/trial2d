@@ -48,8 +48,14 @@ function(T2D_ADD_EXECUTABLE TARGET)
             -sFILESYSTEM=0
             -sMALLOC=emmalloc
             -sMAX_WEBGL_VERSION=1
-            -sMIN_WEBGL_VERSION=1
-            -sWASM=1)
+            -sMIN_WEBGL_VERSION=1)
+
+        if(T2D_EMSCRIPTEN_ASMJS)
+            list(APPEND EMSCRIPTEN_LINK_FLAG_LIST -sWASM=0)
+        elseif(T2D_EMSCRIPTEN_WASM)
+            list(APPEND EMSCRIPTEN_LINK_FLAG_LIST -sWASM=1)
+        endif()
+
         string(REPLACE ";" " " EMSCRIPTEN_LINK_FLAGS "${EMSCRIPTEN_LINK_FLAG_LIST}")
         set_target_properties(${TARGET} PROPERTIES
             SUFFIX ".html"

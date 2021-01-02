@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 if(NOT DEFINED PROJECT_NAME)
-    set(T2D_STANDALONE_BUILD ON)
+    set(T2D_STANDALONE ON)
 endif()
 
 project(trial2d)
@@ -16,11 +16,11 @@ add_subdirectory(editor)
 add_subdirectory(engine)
 add_subdirectory(vendor)
 
-if(T2D_STANDALONE_BUILD)
+if(T2D_STANDALONE)
     add_subdirectory(sample)
 endif()
 
-if(T2D_STANDALONE_BUILD AND T2D_DESKTOP_PLATFORM)
+if(T2D_STANDALONE AND T2D_DESKTOP)
     enable_testing()
     add_subdirectory(utests)
 endif()
