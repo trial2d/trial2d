@@ -2,6 +2,7 @@
 set -e
 DIR=`dirname "${BASH_SOURCE}"`
 
+PWD_DIR=`pwd`
 ROOT_DIR="${DIR}/../.."
 BUILD_DIR="${ROOT_DIR}/build/emscripten_debug"
 
@@ -15,5 +16,5 @@ fi
 source "${EMSDK_DIR}/emsdk_env.sh"
 
 mkdir -p "${BUILD_DIR}"
-emcmake cmake -S "${ROOT_DIR}" -B "${BUILD_DIR}" -G Ninja -DCMAKE_BUILD_TYPE=Debug
-cmake --build "${BUILD_DIR}"
+(cd "${BUILD_DIR}" && emcmake cmake "${PWD_DIR}/${ROOT_DIR}" -DCMAKE_BUILD_TYPE=Debug)
+(cd "${BUILD_DIR}" && cmake --build .)

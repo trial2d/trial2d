@@ -19,7 +19,14 @@ jobs:
     - os: linux
       dist: xenial
       stage: android
-      name: linux
+      name: debug, linux
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
+      script: .ci/builds/build_android_debug.sh
+
+    - os: linux
+      dist: xenial
+      stage: android
+      name: release, linux
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
       script: .ci/builds/build_android_release.sh
 
@@ -30,8 +37,13 @@ jobs:
     - os: osx
       osx_image: xcode12
       stage: android
-      name: darwin
-      addons: { homebrew: { packages: ["ninja"], update: false } }
+      name: debug, darwin
+      script: .ci/builds/build_android_debug.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: android
+      name: release, darwin
       script: .ci/builds/build_android_release.sh
 
     #
@@ -42,7 +54,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, g++-7
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
       env: CC=gcc-7 CXX=g++-7
       script: .ci/builds/build_linux_debug.sh
 
@@ -50,7 +62,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, g++-7
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
       env: CC=gcc-7 CXX=g++-7
       script: .ci/builds/build_linux_release.sh
 
@@ -62,7 +74,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, g++-8
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
       env: CC=gcc-8 CXX=g++-8
       script: .ci/builds/build_linux_debug.sh
 
@@ -70,7 +82,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, g++-8
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
       env: CC=gcc-8 CXX=g++-8
       script: .ci/builds/build_linux_release.sh
 
@@ -82,7 +94,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, clang++-5.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
       env: CC=clang-5.0 CXX=clang++-5.0
       script: .ci/builds/build_linux_debug.sh
 
@@ -90,7 +102,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, clang++-5.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
       env: CC=clang-5.0 CXX=clang++-5.0
       script: .ci/builds/build_linux_release.sh
 
@@ -102,7 +114,7 @@ jobs:
       dist: xenial
       stage: linux
       name: debug, clang++-6.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
       env: CC=clang-6.0 CXX=clang++-6.0
       script: .ci/builds/build_linux_debug.sh
 
@@ -110,7 +122,7 @@ jobs:
       dist: xenial
       stage: linux
       name: release, clang++-6.0
-      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build", "libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
       env: CC=clang-6.0 CXX=clang++-6.0
       script: .ci/builds/build_linux_release.sh
 
@@ -122,14 +134,12 @@ jobs:
       osx_image: xcode11
       stage: darwin
       name: debug, xcode11
-      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_debug.sh
 
     - os: osx
       osx_image: xcode11
       stage: darwin
       name: release, xcode11
-      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_release.sh
 
     #
@@ -140,12 +150,10 @@ jobs:
       osx_image: xcode12
       stage: darwin
       name: debug, xcode12
-      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_debug.sh
 
     - os: osx
       osx_image: xcode12
       stage: darwin
       name: release, xcode12
-      addons: { homebrew: { packages: ["ninja"], update: false } }
       script: .ci/builds/build_darwin_release.sh
