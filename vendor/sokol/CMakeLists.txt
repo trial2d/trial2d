@@ -1,15 +1,10 @@
 project(trial2d-vendor-sokol)
 
-if(APPLE)
-    set(SOURCES
-        sources/sokol.mm)
-else()
-    set(SOURCES
-        sources/sokol.cpp)
-endif()
+set(SOURCES
+    sources/sokol.cpp)
 
 file(GLOB_RECURSE HEADERS headers/*.*)
-add_library(${PROJECT_NAME} OBJECT EXCLUDE_FROM_ALL ${SOURCES} ${HEADERS})
+add_library(${PROJECT_NAME} STATIC EXCLUDE_FROM_ALL ${SOURCES} ${HEADERS})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER trial2d-vendor)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})

@@ -40,10 +40,20 @@ function(T2D_ADD_EXECUTABLE TARGET)
     endif()
 
     if(CMAKE_SYSTEM_NAME MATCHES "Emscripten")
+        set(EMSCRIPTEN_LINK_FLAG_LIST
+            --shell-file ${ARG_TEMPLATES_DIR}/wasm.html
+            -sABORTING_MALLOC=0
+            -sALLOW_MEMORY_GROWTH=1
+            -sDISABLE_EXCEPTION_CATCHING=0
+            -sFILESYSTEM=0
+            -sMALLOC=emmalloc
+            -sMAX_WEBGL_VERSION=1
+            -sMIN_WEBGL_VERSION=1
+            -sWASM=1)
+        string(REPLACE ";" " " EMSCRIPTEN_LINK_FLAGS "${EMSCRIPTEN_LINK_FLAG_LIST}")
         set_target_properties(${TARGET} PROPERTIES
-            SUFFIX ".html")
-        target_link_options(${TARGET}
-            PRIVATE --shell-file ${ARG_TEMPLATES_DIR}/wasm.html)
+            SUFFIX ".html"
+            LINK_FLAGS "${EMSCRIPTEN_LINK_FLAGS}")
     endif()
 
     if(CMAKE_SYSTEM_NAME MATCHES "Windows")

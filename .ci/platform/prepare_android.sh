@@ -10,6 +10,16 @@ NDK_VERSION=21.1.6352462
 #
 #
 
+error_exit()
+{
+    echo "${1:-"Unknown Error"}" 1>&2
+    exit 1
+}
+
+#
+#
+#
+
 DIR=`dirname "${BASH_SOURCE}"`
 
 DOWNLOADS_DIR="${DIR}/.downloads"
@@ -24,9 +34,9 @@ mkdir -p "${ANDROID_SDK_DIR}"
 
 SYSTEM_NAME=`uname | tr '[:upper:]' '[:lower:]'`
 case "${SYSTEM_NAME}" in
-    "darwin") CMDLINE_TOOLS_NAME="commandlinetools-mac-${CMDLINE_TOOLS_ID}_latest";;
-    "linux") CMDLINE_TOOLS_NAME="commandlinetools-linux-${CMDLINE_TOOLS_ID}_latest";;
-    "windows") CMDLINE_TOOLS_NAME="commandlinetools-win-${CMDLINE_TOOLS_ID}_lates"t;;
+    darwin*) CMDLINE_TOOLS_NAME="commandlinetools-mac-${CMDLINE_TOOLS_ID}_latest";;
+    linux*) CMDLINE_TOOLS_NAME="commandlinetools-linux-${CMDLINE_TOOLS_ID}_latest";;
+    *) error_exit "Error. Unknown host system: ${SYSTEM_NAME}";;
 esac
 
 CMDLINE_TOOLS_URL="https://dl.google.com/android/repository/${CMDLINE_TOOLS_NAME}.zip"

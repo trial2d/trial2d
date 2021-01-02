@@ -13,11 +13,77 @@ jobs:
   include:
 
     #
+    # android (linux)
+    #
+
+    - os: linux
+      dist: bionic
+      stage: android
+      name: debug, linux
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
+      script: .ci/builds/build_android_debug.sh
+
+    - os: linux
+      dist: bionic
+      stage: android
+      name: release, linux
+      addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
+      script: .ci/builds/build_android_release.sh
+
+    #
+    # android (darwin)
+    #
+
+    - os: osx
+      osx_image: xcode12
+      stage: android
+      name: debug, darwin
+      script: .ci/builds/build_android_debug.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: android
+      name: release, darwin
+      script: .ci/builds/build_android_release.sh
+
+    #
+    # emscripten (linux)
+    #
+
+    - os: linux
+      dist: bionic
+      stage: emscripten
+      name: debug, linux
+      script: .ci/builds/build_emscripten_debug.sh
+
+    - os: linux
+      dist: bionic
+      stage: emscripten
+      name: release, linux
+      script: .ci/builds/build_emscripten_release.sh
+
+    #
+    # emscripten (darwin)
+    #
+
+    - os: osx
+      osx_image: xcode12
+      stage: emscripten
+      name: debug, darwin
+      script: .ci/builds/build_emscripten_debug.sh
+
+    - os: osx
+      osx_image: xcode12
+      stage: emscripten
+      name: release, darwin
+      script: .ci/builds/build_emscripten_release.sh
+
+    #
     # linux (g++-7)
     #
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: debug, g++-7
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
@@ -25,7 +91,7 @@ jobs:
       script: .ci/builds/build_linux_debug.sh
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: release, g++-7
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
@@ -37,7 +103,7 @@ jobs:
     #
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: debug, g++-8
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
@@ -45,7 +111,7 @@ jobs:
       script: .ci/builds/build_linux_debug.sh
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: release, g++-8
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
@@ -57,7 +123,7 @@ jobs:
     #
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: debug, clang++-5.0
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
@@ -65,7 +131,7 @@ jobs:
       script: .ci/builds/build_linux_debug.sh
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: release, clang++-5.0
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-5.0"] } }
@@ -77,7 +143,7 @@ jobs:
     #
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: debug, clang++-6.0
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
@@ -85,7 +151,7 @@ jobs:
       script: .ci/builds/build_linux_debug.sh
 
     - os: linux
-      dist: xenial
+      dist: bionic
       stage: linux
       name: release, clang++-6.0
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7", "clang-6.0"] } }
@@ -123,11 +189,3 @@ jobs:
       stage: darwin
       name: release, xcode12
       script: .ci/builds/build_darwin_release.sh
-
-before_install:
-  - if [ "$TRAVIS_OS_NAME" == 'linux' ]; then
-    mkdir $HOME/cmake;
-    export PATH="$HOME/cmake/bin:$PATH";
-    travis_retry wget -q https://cmake.org/files/v3.13/cmake-3.13.0-Linux-x86_64.sh;
-    sh cmake-3.13.0-Linux-x86_64.sh --prefix=$HOME/cmake --exclude-subdir --skip-license;
-    fi
