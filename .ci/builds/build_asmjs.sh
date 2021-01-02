@@ -4,7 +4,7 @@ DIR=`dirname "${BASH_SOURCE}"`
 
 PWD_DIR=`pwd`
 ROOT_DIR="${DIR}/../.."
-BUILD_DIR="${ROOT_DIR}/build/asmjs_release"
+BUILD_DIR="${ROOT_DIR}/build/asmjs"
 
 PLATFORM_DIR="${DIR}/../platform"
 EMSDK_DIR="${PLATFORM_DIR}/emscripten_sdk/emsdk-2.0.11"
