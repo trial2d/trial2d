@@ -1,8 +1,3 @@
-environment:
-  global:
-    T2D_WITHOUT_AUDIO: true
-    T2D_WITHOUT_GRAPHICS: true
-
 shallow_clone: true
 
 image:
@@ -14,26 +9,9 @@ platform:
   - x64
 
 configuration:
-  - Debug
   - Release
 
 for:
-
--
-  matrix:
-    only:
-      - platform: x86
-        configuration: Debug
-  build_script:
-    - .ci\builds\build_windows_debug_x86.bat
-
--
-  matrix:
-    only:
-      - platform: x64
-        configuration: Debug
-  build_script:
-    - .ci\builds\build_windows_debug_x64.bat
 
 -
   matrix:
