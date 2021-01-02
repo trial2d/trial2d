@@ -15,13 +15,13 @@ jobs:
       osx_image: xcode11
       stage: ios
       name: xcode11
-      script: .ci/builds/build_ios_simulator_release.sh
+      script: .ci/builds/build_ios_simulator.sh
 
     - os: osx
       osx_image: xcode12
       stage: ios
       name: xcode12
-      script: .ci/builds/build_ios_simulator_release.sh
+      script: .ci/builds/build_ios_simulator.sh
 
     #
     # android
@@ -32,13 +32,13 @@ jobs:
       stage: android
       name: linux
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["ninja-build"] } }
-      script: .ci/builds/build_android_release.sh
+      script: .ci/builds/build_android.sh
 
     - os: osx
       osx_image: xcode12
       stage: android
       name: darwin
-      script: .ci/builds/build_android_release.sh
+      script: .ci/builds/build_android.sh
 
     #
     # emscripten (asmjs)
@@ -48,13 +48,13 @@ jobs:
       dist: bionic
       stage: emscripten
       name: asmjs, linux
-      script: .ci/builds/build_asmjs_release.sh
+      script: .ci/builds/build_asmjs.sh
 
     - os: osx
       osx_image: xcode12
       stage: emscripten
       name: asmjs, darwin
-      script: .ci/builds/build_asmjs_release.sh
+      script: .ci/builds/build_asmjs.sh
 
     #
     # emscripten (wasm)
@@ -64,13 +64,13 @@ jobs:
       dist: bionic
       stage: emscripten
       name: wasm, linux
-      script: .ci/builds/build_wasm_release.sh
+      script: .ci/builds/build_wasm.sh
 
     - os: osx
       osx_image: xcode12
       stage: emscripten
       name: wasm, darwin
-      script: .ci/builds/build_wasm_release.sh
+      script: .ci/builds/build_wasm.sh
 
     #
     # linux (g++)
@@ -82,7 +82,7 @@ jobs:
       name: g++-7
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-7"] } }
       env: CC=gcc-7 CXX=g++-7
-      script: .ci/builds/build_linux_release.sh
+      script: .ci/builds/build_linux.sh
 
     - os: linux
       dist: bionic
@@ -90,7 +90,7 @@ jobs:
       name: g++-8
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "g++-8"] } }
       env: CC=gcc-8 CXX=g++-8
-      script: .ci/builds/build_linux_release.sh
+      script: .ci/builds/build_linux.sh
 
     #
     # linux (clang++)
@@ -102,7 +102,7 @@ jobs:
       name: clang++-5.0
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "clang-5.0"] } }
       env: CC=clang-5.0 CXX=clang++-5.0
-      script: .ci/builds/build_linux_release.sh
+      script: .ci/builds/build_linux.sh
 
     - os: linux
       dist: bionic
@@ -110,7 +110,7 @@ jobs:
       name: clang++-6.0
       addons: { apt: { sources: ["ubuntu-toolchain-r-test"], packages: ["libx11-dev", "libgl1-mesa-dev", "xorg-dev", "clang-6.0"] } }
       env: CC=clang-6.0 CXX=clang++-6.0
-      script: .ci/builds/build_linux_release.sh
+      script: .ci/builds/build_linux.sh
 
     #
     # darwin
@@ -120,10 +120,10 @@ jobs:
       osx_image: xcode11
       stage: darwin
       name: xcode11
-      script: .ci/builds/build_darwin_release.sh
+      script: .ci/builds/build_darwin.sh
 
     - os: osx
       osx_image: xcode12
       stage: darwin
       name: xcode12
-      script: .ci/builds/build_darwin_release.sh
+      script: .ci/builds/build_darwin.sh

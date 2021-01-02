@@ -19,7 +19,7 @@ for:
       - platform: x86
         configuration: Release
   build_script:
-    - .ci\builds\build_windows_release_x86.bat
+    - .ci\builds\build_windows_x86.bat
 
 -
   matrix:
@@ -27,4 +27,4 @@ for:
       - platform: x64
         configuration: Release
   build_script:
-    - .ci\builds\build_windows_release_x64.bat
+    - .ci\builds\build_windows_x64.bat
