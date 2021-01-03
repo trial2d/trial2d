@@ -1,12 +1,7 @@
 project(trial2d-vendor-miniaudio)
 
-if(APPLE)
-    set(SOURCES
-        sources/miniaudio.mm)
-else()
-    set(SOURCES
-        sources/miniaudio.cpp)
-endif()
+set(SOURCES
+    sources/miniaudio.cpp)
 
 file(GLOB_RECURSE HEADERS headers/*.*)
 add_library(${PROJECT_NAME} STATIC EXCLUDE_FROM_ALL ${SOURCES} ${HEADERS})
