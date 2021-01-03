@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <trial2d/application/application.hpp>
 #include <trial2d/audio/audio.hpp>
 #include <trial2d/core/core.hpp>
 #include <trial2d/debug/debug.hpp>
 #include <trial2d/image/image.hpp>
 #include <trial2d/input/input.hpp>
 #include <trial2d/memory/memory.hpp>
+#include <trial2d/starter/starter.hpp>
 #include <trial2d/storage/storage.hpp>
 
 namespace sample

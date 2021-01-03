@@ -1,20 +1,15 @@
 project(trial2d-engine)
 
-option(T2D_ENABLE_APPLICATION_MODULE "Enable trial2d application module" ON)
 option(T2D_ENABLE_AUDIO_MODULE "Enable trial2d audio module" ON)
 option(T2D_ENABLE_CORE_MODULE "Enable trial2d core module" ON)
 option(T2D_ENABLE_DEBUG_MODULE "Enable trial2d debug module" ON)
 option(T2D_ENABLE_IMAGE_MODULE "Enable trial2d image module" ON)
 option(T2D_ENABLE_INPUT_MODULE "Enable trial2d input module" ON)
 option(T2D_ENABLE_MEMORY_MODULE "Enable trial2d memory module" ON)
+option(T2D_ENABLE_STARTER_MODULE "Enable trial2d starter module" ON)
 option(T2D_ENABLE_STORAGE_MODULE "Enable trial2d storage module" ON)
 
 add_library(${PROJECT_NAME} INTERFACE)
-
-if(T2D_ENABLE_APPLICATION_MODULE)
-    add_subdirectory(application)
-    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-application)
-endif()
 
 if(T2D_ENABLE_AUDIO_MODULE)
     add_subdirectory(audio)
@@ -44,6 +39,11 @@ endif()
 if(T2D_ENABLE_MEMORY_MODULE)
     add_subdirectory(memory)
     target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-memory)
+endif()
+
+if(T2D_ENABLE_STARTER_MODULE)
+    add_subdirectory(starter)
+    target_link_libraries(${PROJECT_NAME} INTERFACE trial2d-engine-starter)
 endif()
 
 if(T2D_ENABLE_STORAGE_MODULE)

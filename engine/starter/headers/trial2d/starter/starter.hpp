@@ -8,7 +8,7 @@
 
 #include <trial2d/core/core.hpp>
 
-namespace trial2d::application
+namespace trial2d::starter
 {
     class service {
     public:
