@@ -12,12 +12,8 @@
 #include <trial2d/debug/debug.hpp>
 #include <trial2d/image/image.hpp>
 #include <trial2d/input/input.hpp>
-#include <trial2d/inspector/inspector.hpp>
 #include <trial2d/memory/memory.hpp>
-#include <trial2d/particles/particles.hpp>
-#include <trial2d/physics/physics.hpp>
 #include <trial2d/storage/storage.hpp>
-#include <trial2d/widgets/widgets.hpp>
 
 namespace sample
 {
