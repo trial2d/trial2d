@@ -7,6 +7,7 @@
 #include <trial2d/storage/storage.hpp>
 
 #include <trial2d/debug/debug.hpp>
+#include <trial2d/memory/memory.hpp>
 
 namespace
 {
@@ -14,8 +15,9 @@ namespace
 
     class service_impl final : public storage::service {
     public:
-        service_impl(debug::service& debug)
-        : debug_(debug) {
+        service_impl(debug::service& debug, memory::service& memory)
+        : debug_(debug)
+        , memory_(memory) {
             debug_.trace("storage::service()");
         }
 
@@ -69,6 +71,7 @@ namespace
         }
     private:
         debug::service& debug_;
+        memory::service& memory_;
         flat_map<std::string, int> int_values_;
         flat_map<std::string, float> float_values_;
         flat_map<std::string, std::string> string_values_;

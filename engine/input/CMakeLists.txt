@@ -1,6 +1,8 @@
 project(trial2d-engine-input)
 
-file(GLOB_RECURSE SOURCES sources/*.*)
+set(SOURCES
+    sources/input.cpp)
+
 file(GLOB_RECURSE HEADERS headers/*.*)
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 

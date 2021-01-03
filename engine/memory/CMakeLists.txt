@@ -1,6 +1,8 @@
 project(trial2d-engine-memory)
 
-file(GLOB_RECURSE SOURCES sources/*.*)
+set(SOURCES
+    sources/memory.cpp)
+
 file(GLOB_RECURSE HEADERS headers/*.*)
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 

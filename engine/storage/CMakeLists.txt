@@ -1,6 +1,8 @@
 project(trial2d-engine-storage)
 
-file(GLOB_RECURSE SOURCES sources/*.*)
+set(SOURCES
+    sources/storage.cpp)
+
 file(GLOB_RECURSE HEADERS headers/*.*)
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
@@ -12,4 +14,5 @@ target_include_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC trial2d-engine-core
-    PUBLIC trial2d-engine-debug)
+    PUBLIC trial2d-engine-debug
+    PUBLIC trial2d-engine-memory)
