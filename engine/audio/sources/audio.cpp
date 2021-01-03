@@ -9,6 +9,8 @@
 #include <trial2d/debug/debug.hpp>
 #include <trial2d/memory/memory.hpp>
 
+#include "miniaudio/miniaudio_base.hpp"
+
 namespace
 {
     using namespace trial2d;
