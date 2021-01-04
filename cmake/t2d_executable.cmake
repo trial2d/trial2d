@@ -1,4 +1,4 @@
-function(T2D_ADD_EXECUTABLE TARGET)
+function(T2D_EXECUTABLE TARGET)
     cmake_parse_arguments(
         PARSE_ARGV
         1

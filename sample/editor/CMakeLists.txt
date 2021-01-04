@@ -3,8 +3,8 @@ project(trial2d-sample-editor)
 file(GLOB_RECURSE SOURCES sources/*.*)
 file(GLOB_RECURSE HEADERS headers/*.*)
 
-include("t2d_add_executable")
-t2d_add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS}
+include("t2d_executable")
+t2d_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS}
     BUNDLE_IDENTIFIER "me.matov.trial2d-sample-editor"
     TEMPLATES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/support)
 
