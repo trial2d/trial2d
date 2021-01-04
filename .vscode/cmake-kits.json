@@ -1,12 +1,36 @@
 [{
-    "name": "Android",
-    "toolchainFile": "${workspaceFolder}/.ci/android_sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
+    "name": "T2D_ANDROID",
+    "toolchainFile": "${workspaceFolder}/.ci/platform/android_sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
     "cmakeSettings": {
         "ANDROID_ABI": "armeabi-v7a",
         "ANDROID_PLATFORM": "android-19"
     }
 },{
-    "name": "Emscripten",
-    "toolchainFile": "${workspaceFolder}/.ci/emscripten_sdk/emsdk-2.0.11/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
-    "environmentSetupScript": "${workspaceFolder}/.ci/emscripten_sdk/emsdk-2.0.11/emsdk_env.sh"
+    "name": "T2D_IOS_DEVICE",
+    "toolchainFile": "${workspaceFolder}/vendor/ios-cmake/ios.toolchain.cmake",
+    "cmakeSettings": {
+        "PLATFORM": "OS",
+        "DEPLOYMENT_TARGET": "10.0"
+    }
+},{
+    "name": "T2D_IOS_SIMULATOR",
+    "toolchainFile": "${workspaceFolder}/vendor/ios-cmake/ios.toolchain.cmake",
+    "cmakeSettings": {
+        "PLATFORM": "SIMULATOR64",
+        "DEPLOYMENT_TARGET": "10.0"
+    }
+},{
+    "name": "T2D_EMSCRIPTEN_ASMJS",
+    "toolchainFile": "${workspaceFolder}/.ci/platform/emscripten_sdk/emsdk-2.0.11/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+    "environmentSetupScript": "${workspaceFolder}/.ci/platform/emscripten_sdk/emsdk-2.0.11/emsdk_env.sh",
+    "cmakeSettings": {
+        "T2D_EMSCRIPTEN_ASMJS": "ON"
+    }
+},{
+    "name": "T2D_EMSCRIPTEN_WASM",
+    "toolchainFile": "${workspaceFolder}/.ci/platform/emscripten_sdk/emsdk-2.0.11/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+    "environmentSetupScript": "${workspaceFolder}/.ci/platform/emscripten_sdk/emsdk-2.0.11/emsdk_env.sh",
+    "cmakeSettings": {
+        "T2D_EMSCRIPTEN_WASM": "ON"
+    }
 }]
