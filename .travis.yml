@@ -48,13 +48,13 @@ jobs:
       dist: bionic
       stage: emscripten
       name: asmjs, linux
-      script: .ci/builds/build_asmjs.sh
+      script: .ci/builds/build_emscripten_asmjs.sh
 
     - os: osx
       osx_image: xcode12
       stage: emscripten
       name: asmjs, darwin
-      script: .ci/builds/build_asmjs.sh
+      script: .ci/builds/build_emscripten_asmjs.sh
 
     #
     # emscripten (wasm)
@@ -64,13 +64,13 @@ jobs:
       dist: bionic
       stage: emscripten
       name: wasm, linux
-      script: .ci/builds/build_wasm.sh
+      script: .ci/builds/build_emscripten_wasm.sh
 
     - os: osx
       osx_image: xcode12
       stage: emscripten
       name: wasm, darwin
-      script: .ci/builds/build_wasm.sh
+      script: .ci/builds/build_emscripten_wasm.sh
 
     #
     # linux (g++)

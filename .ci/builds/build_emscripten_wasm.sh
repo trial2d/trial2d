@@ -4,7 +4,7 @@ DIR=`dirname "${BASH_SOURCE}"`
 
 PWD_DIR=`pwd`
 ROOT_DIR="${DIR}/../.."
-BUILD_DIR="${ROOT_DIR}/build/wasm"
+BUILD_DIR="${ROOT_DIR}/build/emscripten_wasm"
 
 PLATFORM_DIR="${DIR}/../platform"
 EMSDK_DIR="${PLATFORM_DIR}/emscripten_sdk/emsdk-2.0.11"
