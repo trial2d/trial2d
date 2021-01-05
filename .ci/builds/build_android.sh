@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-DIR=`dirname "${BASH_SOURCE}"`
+DIR="$( cd "$( dirname "${BASH_SOURCE}" )" && pwd )"
 
 ROOT_DIR="${DIR}/../.."
 GRADLE_DIR="${ROOT_DIR}/sample/gradle"
@@ -12,4 +12,4 @@ if [ ! -d "${ANDROID_NDK_DIR}" ]; then
     "${PLATFORM_DIR}/prepare_android.sh"
 fi
 
-"${GRADLE_DIR}/gradlew" assembleRelease --project-dir "${GRADLE_DIR}"
+(cd "${GRADLE_DIR}" && ./gradlew assembleRelease)
