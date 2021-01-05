@@ -1,5 +1,4 @@
-# 3.8 version is required for `cxx_std_17`
-cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
 if(NOT DEFINED PROJECT_NAME)
     set(T2D_STANDALONE ON)
@@ -10,6 +9,7 @@ project(trial2d)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+include("t2d_executable")
 include("t2d_platform")
 
 add_subdirectory(engine)
@@ -23,7 +23,7 @@ if(T2D_STANDALONE)
     add_subdirectory(sample)
 endif()
 
-if(T2D_STANDALONE AND T2D_DESKTOP)
+if(T2D_DESKTOP AND T2D_STANDALONE)
     enable_testing()
     add_subdirectory(utests)
 endif()
